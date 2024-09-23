@@ -1,9 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const { createTodo, updateTodo } = require("./types"); // Ensure these are properly defined schemas
 const { todo } = require("./db"); // MongoDB collection
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/todo", async function (req, res) {
     const createPayload = req.body;
